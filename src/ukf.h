@@ -3,6 +3,7 @@
 
 #include "measurement_package.h"
 #include "Eigen/Dense"
+#include "tools.h"
 #include <vector>
 #include <string>
 #include <fstream>
@@ -27,6 +28,10 @@ public:
 
   ///* state covariance matrix
   MatrixXd P_;
+
+  MatrixXd H_laser_;
+
+  MatrixXd R_laser_;
 
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
@@ -66,6 +71,14 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+
+  VectorXd x_aug_;
+
+  MatrixXd P_aug_;
+
+  MatrixXd Xsig_aug_;
+
+  Tools tools;
 
 
   /**
